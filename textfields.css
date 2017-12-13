@@ -1,0 +1,48 @@
+.dyn-textfield {
+	margin: 3px 0 0;
+	padding: 0;
+	overflow: hidden;
+	position: relative;
+	height: 42px; /* necessary so that there's no vibrating when input border-bottom is increased */
+}
+
+.dyn-textfield .dyn-textfield-input {
+	margin: 14px 0 0;
+	padding: 3px 0 3px 1px;
+	box-sizing: border-box;
+	border: none;
+	border-bottom: 1px solid #BDBDBD;
+	display: block;
+	width: 100%;
+	max-width: 100%;
+	font-family: inherit;
+	color: inherit;
+	font-size: 16px;
+	transition: border-bottom .15s ease-in-out 0ms;
+}
+
+.dyn-textfield .dyn-textfield-input:focus {
+	outline: none;
+	border-bottom: 2px solid #3F51B5;
+}
+
+.dyn-textfield .dyn-textfield-label {
+	position: absolute;
+	top: 17px;
+	margin: 0;
+	color: #757575;
+	font-size: 16px;
+	cursor: text;
+	transition: margin-top .17s cubic-bezier(0, 0, .2, 1) 0ms, font-size .17s ease 0ms, color .17s ease-in-out 0ms;
+}
+
+.dyn-textfield .dyn-textfield-input:focus + label, .dyn-textfield .dyn-textfield-input.notempty + label {
+	margin-top: -20px;
+	font-size: 13.8px;
+	color: #3F51B5;
+	cursor: default;
+}
+
+.dyn-textfield .dyn-textfield-input.required.not-set {
+	border-bottom: 2px solid #F44336;
+}

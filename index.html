@@ -1,0 +1,61 @@
+<!DOCTYPE html><html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Textfields</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="./textfields.css">
+	<style>
+		html {
+			background-color: #F5F5F5;
+		}
+		body {
+			margin: 20px auto;
+			width: 100%;
+			max-width: 800px;
+			color: #303030;
+			background-color: #fff;
+			padding: 50px;
+			font-family: "Source Sans Pro", Helvetica, sans-serif;
+		}
+	</style>
+</head>
+<body>
+
+<div id="the-container">
+
+	<div class="dyn-textfield">
+		<input type="text" class="dyn-textfield-input" id="one" onkeyup="document.getElementById('three').value = this.value">
+		<label for="one" class="dyn-textfield-label">Label for One</label>
+	</div>
+
+	<br>
+
+	<div class="dyn-textfield">
+		<input type="text" class="dyn-textfield-input" id="two" value="something">
+		<label for="two" class="dyn-textfield-label">Label for Two</label>
+	</div>
+
+	<br>
+
+	<div>This one's value changes when the first one's changes:</div>
+	<div class="dyn-textfield">
+		<input type="text" class="dyn-textfield-input" id="three">
+		<label for="three" class="dyn-textfield-label">Label for Three</label>
+	</div>
+
+</div>
+
+	<script src=></script>
+
+	<script type="module">
+
+		import DynamicTextFields from "./textfields.js";
+
+		let tf = new DynamicTextFields("the-container")
+
+		tf.registerAll()
+
+	</script>
+
+</body>
+</html>

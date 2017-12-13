@@ -1,0 +1,24 @@
+{
+  "name": "dynamic-textfields",
+  "version": "1.0.0",
+  "description": "A lightweight library for dynamic textfields, styled (somewhat) after material design principles.",
+  "main": "textfields.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dchenk/dynamic-textfields.git"
+  },
+  "keywords": [
+    "textfields",
+    "dynamic",
+    "material"
+  ],
+  "author": "Dmitriy Cherchenko (Wider Webs LLC)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dchenk/dynamic-textfields/issues"
+  },
+  "homepage": "https://github.com/dchenk/dynamic-textfields#readme"
+}
