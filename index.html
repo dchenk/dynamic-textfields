@@ -49,9 +49,18 @@
 
 		import DynamicTextFields from "./textfields.js";
 
+		// Construct the object of the element that contains all of the text fields that you want to style.
 		let tf = new DynamicTextFields("the-container");
 
+		// Register all of the text fields within the container.
 		tf.registerAll();
+
+		// Reset the styling because we are starting with a text field that already has text inside.
+		tf.resetAllStyles();
+
+		// Register a refresher: When the text field with id="one" changes, update the style of the text field
+		// with id="three".
+		tf.registerRefresher("one", "three");
 
 	</script>
 
