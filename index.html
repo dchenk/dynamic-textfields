@@ -52,6 +52,9 @@
 		// Construct the object of the element that contains all of the text fields that you want to style.
 		let tf = new DynamicTextFields("the-container");
 
+		// Copy object to window for access in the console (for the example only).
+		window.tf = tf;
+
 		// Register all of the text fields within the container.
 		tf.registerAll();
 

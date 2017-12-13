@@ -3,53 +3,63 @@
 // containerID is the ID of the element that contains the input elements
 function DynamicTextFields(containerID) {
 
-	this.container = document.getElementById(containerID)
+	if (!containerID) {
+		console.log("ERROR: You must pass in the ID of the containing element");
+		return;
+	}
+
+	this.container = document.getElementById(containerID);
 
 	this.resetStyle = function(evt) {
 		if (evt.target.value.trim() === "") {
 			if (evt.target.classList.contains("required")) {
-				evt.target.classList.add("not-set")
+				evt.target.classList.add("not-set");
 			} else {
-				this.classList.remove("notempty")
+				this.classList.remove("notempty");
 			}
 		} else {
 			if (evt.target.classList.contains("required")) {
-				evt.target.classList.remove("not-set")
+				evt.target.classList.remove("not-set");
 			}
-			this.classList.add("notempty")
+			this.classList.add("notempty");
 		}
 	}
 
 	this.resetAllStyles = function() {
-		var els = this.container.getElementsByClassName("dyn-textfield-input");
-		for (var i = 0; i < els.length; i++) {
+		let els = this.container.getElementsByClassName("dyn-textfield-input");
+		for (let i = 0; i < els.length; i++) {
 			if (els[i].value === "") {
-				els[i].classList.remove("notempty")
+				els[i].classList.remove("notempty");
 			} else {
-				els[i].classList.add("notempty")
+				els[i].classList.add("notempty");
 			}
 		}
 	}
 
 	this.registerAll = function() {
-		var els = this.container.getElementsByClassName("dyn-textfield-input");
-		for (var i = 0; i < els.length; i++) {
-			els[i].addEventListener("change", this.resetStyle)
+		let fs = this.container.getElementsByClassName("dyn-textfield-input");
+		if (fs.length === 0) {
+			console.log("ERROR: No text fields to register were found");
+			return;
+		}
+		for (let i = 0; i < fs.length; i++) {
+			fs[i].addEventListener("change", this.resetStyle);
 		}
 	}
 
 	this.deregisterAll = function() {
-		var els = this.container.getElementsByClassName("dyn-textfield-input");
-		for (var i = 0; i < els.length; i++) {
-			els[i].removeEventListener("change", this.resetStyle)
+		let els = this.container.getElementsByClassName("dyn-textfield-input");
+		for (let i = 0; i < els.length; i++) {
+			els[i].removeEventListener("change", this.resetStyle);
 		}
 	}
 
-	// registerRefresher registers a listener on an input that dynamically sets the value of another input.
-	// This listener ensures that the input being set programmatically will have correct styles.
+	// registerRefresher registers a listener on an text field that, when changed, affects the the value
+	// of another text field (making the affected field needed a style reset). Register a refresher
+	// to ensure that the input being set programmatically will appear correctly based on whether it's empty.
 	this.registerRefresher = function(toListenID, toRefreshID) {
-		var r = document.getElementById(toRefreshID)
-		document.getElementById(toListenID).addEventListener("input", this.resetStyle.bind(r))
+		let r = document.getElementById(toRefreshID);
+		document.getElementById(toListenID).addEventListener("input", this.resetStyle.bind(r));
 	}
 
 }
