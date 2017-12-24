@@ -1,6 +1,8 @@
 "use strict";
 
-// containerID is the ID of the element that contains the input elements
+// Create a DynamicTextFields object using the "new" operator, with the only
+// argument passed in being the ID of an element that will contain all of the
+// text fields you will want registered and styled.
 function DynamicTextFields(containerID) {
 
 	if (!containerID) {
@@ -39,7 +41,6 @@ function DynamicTextFields(containerID) {
 	this.registerAll = function() {
 		let fs = this.container.getElementsByClassName("dyn-textfield-input");
 		if (fs.length === 0) {
-			console.log("ERROR: No text fields to register were found");
 			return;
 		}
 		for (let i = 0; i < fs.length; i++) {
@@ -54,7 +55,7 @@ function DynamicTextFields(containerID) {
 		}
 	}
 
-	// registerRefresher registers a listener on an text field that, when changed, affects the the value
+	// registerRefresher registers a listener on a text field that, when changed, affects the the value
 	// of another text field (making the affected field needed a style reset). Register a refresher
 	// to ensure that the input being set programmatically will appear correctly based on whether it's empty.
 	this.registerRefresher = function(toListenID, toRefreshID) {
