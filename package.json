@@ -1,6 +1,6 @@
 {
   "name": "dynamic-textfields",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A lightweight library for dynamic textfields, styled (somewhat) after material design principles.",
   "main": "textfields.js",
   "scripts": {
